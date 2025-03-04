@@ -2,31 +2,29 @@
 
 ## Project Structure
 ```
-├── dataset/               # Dataset directory
+├── dataset/               # Datasets all
 │   ├── formal_informal_dataset.csv   
 │   ├── formal_informal_dataset_small.csv
-│   ├── tokenized_dataset_bert/        # Tokenized dataset for BERT
-│   ├── tokenized_dataset_roberta/     # Tokenized dataset for RoBERTa
-│   ├── tokenized_dataset_for_training/# Dataset for model training
+│   ├── tokenized_dataset_bert/        # Tokenized dataset for BERT evaluation
+│   ├── tokenized_dataset_for_training/ # Dataset for model training
 │   └── dataset_gpt/                   # Dataset prepared for GPT-2 evaluation
-├── data/                 # Data processing scripts
-│   ├── data_preparation.py     # Basic text cleaning and splitting
-│   └── data_preparation_spacy.py # NLP processing with spaCy
+├── preparation/                 # Data processing scripts
+│   ├── data_preparation_bert.py    
+│   ├── data_preparation_gpt.py  
+│   └── data_preparation_train_roberta.py
 ├── docs/                  # Documentation
 │   ├── project_documentation.md  # Technical documentation
 │   └── report.md         # Project journey and methodology
 ├── evaluation/           # Model evaluation scripts
 │   ├── data_evaluate_bert.py    # BERT model evaluation
-│   ├── data_evaluate_roberta.py # RoBERTa model evaluation
 │   ├── data_evaluate_trained_roberta.py # Trained RoBERTa model evaluation
 │   ├── data_evaluate_gpt.py      # GPT-2 model evaluation
 │   └── libs/                    # Shared libraries
 │       └── metric_calculator.py  # Shared metrics calculation
 ├── models/               # Saved models
 │   └── roberta_formality_classifier/ # RoBERTa model artifacts
-├── training/            # Training scripts
-│   ├── train_model_bert.py    # BERT training script
-│   └── train_model_roberta.py # RoBERTa training script
+├── train/            # Training scripts
+│   └── train_model_with_roberta.py # RoBERTa training script
 └── requirements.txt     # Project dependencies
 ```
 

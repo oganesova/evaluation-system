@@ -42,7 +42,7 @@ python data/data_preparation_gpt.py
 ```
 
 ## Training Model - RoBERTa
-4. Please run this scripts to train models.
+4. Please run this scripts to train model.
 ```bash
 
 python train/train_model_with_roberta.py
@@ -100,4 +100,4 @@ Both models are evaluated using:
 - ROC AUC
 - Confusion Matrix
 
-Detailed results can be found in the evaluation outputs. 
+Detailed results can be found in the evaluation outputs (docs/report.md). 
