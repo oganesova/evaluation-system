@@ -7,7 +7,7 @@ A project for evaluating text classifying (formal or informal) using BERT,RoBERT
 
 ## Models Implemented
 
-//FIL INFO ABOUT THIS 3
+BERT, RoBERTa , GPT-2
 
 ## Requirements
 
@@ -18,8 +18,8 @@ A project for evaluating text classifying (formal or informal) using BERT,RoBERT
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/oganesova/llm-formality-detector.git
-   cd llm-formality-detector
+   git clone https://github.com/oganesova/evaluation-system.git
+   cd evaluation-system
    ```
 
 2. Set up the environment and install dependencies:
@@ -27,78 +27,51 @@ A project for evaluating text classifying (formal or informal) using BERT,RoBERT
 
 python -m venv venv
 
-venv\Scripts\activate
-
-source venv/bin/activate
+venv\Scripts\activate |  source venv/bin/activate
 
 pip install -r requirements.txt
 ```
 ## Run Data Preparation scripts
-3. First run BERT data preparation, after that RoBERTa, and . It will save everything in dataset dir 
+3. First run BERT data preparation, after that RoBERTa, and GPT-2.
+   It will save everything in dataset dir , separately.
 
 ```bash
-python data/data_preparation.py
-
-python data/data_preparation_spacy.py
+python data/data_preparation_bert.py
+python data/data_preparation_train_roberta.py
+python data/data_preparation_gpt.py
 ```
 
 ## Training Model - RoBERTa
-Please run this scripts to train models . I try to push this on GitHub, but it almost 9GB.
-You can train either or both models:
-All models will save in models/dir 
-
-
-5. Train RoBERTa:
-
+4. Please run this scripts to train models.
 ```bash
-python training/train_model_roberta.py
+
+python train/train_model_with_roberta.py
+
 ```
+
+I try to push saved model on GitHub, but it almost 9GB and more.
+RoBERTa model will save in models dir 
+
 
 ## Model Evaluation
 
-Evaluate each model's performance:
+5. Evaluate each model's performance:
 
-6. BERT evaluation:
-
-```bash
-python evaluate/evaluate_model_bert.py
-```
-
-7. RoBERTa evaluation:
 
 ```bash
-python evaluate/evaluate_model_roberta.py
-```
+python evaluation/data_evaluate_bert.py
+python evaluation/data_evaluate_trained_roberta.py
+python evaluation/data_evaluate_gpt.py
 
+```
 
 ## Dataset Options
 
 The project supports two dataset versions:
 - `formal_informal_dataset.csv`: Full dataset (1,400 lines)
-- `formal_informal_dataset_small.csv`: Same dataset , but small version , my computer cant handle 1400 lines (37 lines)
+- `formal_informal_dataset_small.csv`: Same dataset (220 lines) , but small version.
+  (I create this for fast testing , because 1400 lines of data training will take so much longer/ 10 hours and more)
 
-
-## Project Structure
-
-```
-├── dataset/             # Dataset files
-├── data/               # Processed and intermediate data
-├── docs/               # Documentation
-│   ├── project_documentation.md
-│   └── report.md
-├── evaluate/           # Evaluation scripts
-│   ├── evaluate_model_bert.py
-│   ├── evaluate_model_roberta.py
-│   └── metric_calculator.py
-├── models/             # Saved model artifacts
-│   ├── bert_formality_classifier/
-│   └── roberta_formality_classifier/
-├── training/          # Training scripts
-│   ├── train_model_bert.py
-│   └── train_model_roberta.py
-├── venv/              # Python virtual environment
-├── requirements.txt   # Project dependencies
-```
 
 ## Development Environment
 
