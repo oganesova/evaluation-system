@@ -2,40 +2,37 @@
 
 Data Prep for BERT
 ___
-![image](https://github.com/user-attachments/assets/863852f1-3799-415e-9670-ee5392cabf36)
+![image](https://github.com/user-attachments/assets/edc91de6-1dde-484d-9975-2c1cbad46fbf)
 ___
-Data Prep for RoBERTa
+Data Prep for RoBERTa (test/train/validation)
 ___
-![image](https://github.com/user-attachments/assets/967a3a75-a39a-464c-ad3d-580247a421e2)
-___
-Data Prep for RoBERTa to train
-___
-![image](https://github.com/user-attachments/assets/967a3a75-a39a-464c-ad3d-580247a421e2)
+![image](https://github.com/user-attachments/assets/369a4618-abb7-4c29-8cca-6f56917318a0)
 ___
 Data Prep for GPT-2
 ___
-![image](https://github.com/user-attachments/assets/967a3a75-a39a-464c-ad3d-580247a421e2)
+![image](https://github.com/user-attachments/assets/b86bdd4e-4d6f-42af-8c7f-69a435887f0d)
 ___
 
 Training - RoBERTA
 ___
-![image](https://github.com/user-attachments/assets/af824865-ae85-4578-8a2e-e5c33281916e)
-![image](https://github.com/user-attachments/assets/f1b967ea-0726-493d-b455-1b94169684fc)
+![image](https://github.com/user-attachments/assets/69159ca2-1c68-4b9b-8c5f-33c456af8817)
+
+![image](https://github.com/user-attachments/assets/a05f266f-98b7-4690-bd3b-a118c262df98)
 
 ___
 Evaluating - BERT
 ___
-![image](https://github.com/user-attachments/assets/ed23422e-3e39-44fd-bfba-54899b84b5a4)
-___
-Evaluating - RoBERTa
-___
+![image](https://github.com/user-attachments/assets/f7ee449f-1a2f-4fcf-ad84-fef600405a27)
 ___
 Evaluating - RoBERTa with training
 ___
+![image](https://github.com/user-attachments/assets/07321a41-ea0f-4679-8be7-8d5ea28d35f7)
 ___
 Evaluating - GPT-2
 ___
+![image](https://github.com/user-attachments/assets/06ccb204-b6a1-49a2-9831-ba99fdddaced)
 ___
+
 ## My Project Journey and Implementation Steps
 ___
 
@@ -140,7 +137,8 @@ indicating the highest possible performance.
 
 Roberta Not Trained Evaluation Result: 
 
-//img
+![image](https://github.com/user-attachments/assets/0abc1600-082f-448f-b4ef-b11c98b3179b)
+
 Just for comparison, I also decided to take a pre-trained RoBERTa model without any fine-tuning and test it on the dataset.
 As expected, it didn't perform as well as the fine-tuned version.
 The accuracy and precision are considerably lower, but the model still gives a good recall and AUC ROC,
