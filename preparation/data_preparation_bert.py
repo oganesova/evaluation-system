@@ -45,7 +45,7 @@ def tokenize_dataset(dataset_format):
 
 def save_tokenized_data(tokenized_data):
     try:
-        tokenized_data.save_to_disk("../dataset/tokenized_dataset_bert")
+        tokenized_data.save_to_disk("dataset/tokenized_dataset_bert")
         logging.info("Tokenized dataset saved to 'dataset/tokenized_dataset_bert'.")
     except Exception as e:
         logging.error(f"An error occurred during data saving: {e}")
@@ -54,8 +54,8 @@ def save_tokenized_data(tokenized_data):
 
 
 if __name__ == "__main__":
-    dataset_file_path_big = "../dataset/formal_informal_dataset.csv"
-    dataset_file_path_small = "../dataset/formal_informal_dataset_small.csv"
+    dataset_file_path_big = ".dataset/formal_informal_dataset.csv"
+    dataset_file_path_small = "dataset/formal_informal_dataset_small.csv"
     dataset_frame = load_dataset(dataset_file_path_small)
     dataset_format_ = convert_frame_to_dataset_format(dataset_frame)
     tokenized = tokenize_dataset(dataset_format_)

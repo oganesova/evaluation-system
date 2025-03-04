@@ -100,21 +100,77 @@ These metrics are important since they give us a complete picture of the perform
 
 ### Model Comparison
 ___
-After completing the initial training with BERT, I implemented RoBERTa for comparison. RoBERTa showed several interesting characteristics:
-- More robust training process due to its improved methodology
-- Generally faster convergence during training
-- Better handling of complex language patterns
-- Improved performance on formal language detection
 
-I repeated all the evaluation steps for both models, ensuring a fair comparison using identical metrics and test data. The results showed that while both models performed well, RoBERTa demonstrated some advantages in:
-- Accuracy on formal text classification
-- Handling of complex sentence structures
-- Overall robustness of predictions
+In this report, I evaluate the performance of three different models for text classification based on their accuracy, precision, recall, F1 score, confusion matrix, and AUC ROC score. The models compared are:
 
-All the metrics were calculated and reported for both models, allowing for a comprehensive comparison of their strengths and weaknesses.
+1. BERT (not trained)
+
+The performance of BERT (not fine-tuned) for the text classification task `
+
+Accuracy: 0.4748
+Precision: 0.4870
+Recall: 0.9450
+F1 Score: 0.6427
+Confusion Matrix:
+[[  1 217]
+[ 12 206]]
+AUC ROC: 0.2639
+
+**Result** - While the recall is high, indicating that the model is good at identifying positive samples, the accuracy is relatively low,
+suggesting that it is not effectively distinguishing between the classes.
+The AUC ROC score is also quite low, showing that the model's performance is suboptimal without fine-tuning.
+
+2. RoBERTa (trained)
+
+The RoBERTa (trained) model shows outstanding performance in all metrics:
+
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1 Score: 1.0000
+Confusion Matrix:
+[[47  0]
+[ 0 41]]
+AUC ROC: 1.0000
+
+**Result** - RoBERTa, being a fine-tuned model, achieved perfect results across all metrics.
+The accuracy and F1 score of 1.0000 reflect that the model has perfectly learned the classification task, with no misclassifications.
+The confusion matrix shows no false positives or false negatives, which contributes to the AUC ROC of 1.0000,
+indicating the highest possible performance.
+
+Roberta Not Trained Evaluation Result: 
+
+//img
+Just for comparison, I also decided to take a pre-trained RoBERTa model without any fine-tuning and test it on the dataset.
+As expected, it didn't perform as well as the fine-tuned version.
+The accuracy and precision are considerably lower, but the model still gives a good recall and AUC ROC,
+which indicates its effectiveness in capturing positive instances.
+
+3. GPT-2 (not trained)
+
+The GPT-2 (not fine-tuned) model also performs reasonably well in some metrics:
+
+Accuracy: 0.5000
+Precision: 0.5000
+Recall: 1.0000
+F1 Score: 0.6667
+Confusion Matrix:
+[[  0 218]
+[  0 218]]
+AUC ROC: 0.4806
+
+**Result** - GPT-2, being a generative model, is not optimized for text classification tasks, and its performance is not as strong as RoBERTa’s.
+While it achieves a perfect recall (indicating it identifies all positive samples), its accuracy and precision are low.
+The confusion matrix shows that the model only predicts positive class labels, leading to a poor AUC ROC of 0.4806, 
+which is indicative of weak performance on the classification task.
+
 
 ## Conclusion
 ___
+In summary, for optimal performance, fine-tuning a model like RoBERTa is crucial. Pre-trained models like BERT can still work well with some fine-tuning, but GPT-2,
+being designed for text generation rather than classification, is likely to give suboptimal results unless specifically adapted for classification tasks.
+I think the best solution is always train model with custom dataset before evaluation , and I think using with train/validation datasets can improve our evaluation results.
+
 This has been an interesting and educational project. In three days, I learned many algorithms and methods,
 discovered helpful video lectures, and learned so much more about machine learning. I will continue learning and expanding my knowledge in this field.
 This has been a rich experience.
@@ -124,7 +180,7 @@ Thank you for reading! It was an exciting ride into the world of text processing
 ## P.S
 ___
 
-In my screenshots, you can see small numbers like 180,
+In my screenshots, you can see small numbers like 210,
 but my actual dataset contains 1,400 lines.
 I created a smaller version of my dataset for testing purposes
 because, unfortunately, my computer couldn't handle the full

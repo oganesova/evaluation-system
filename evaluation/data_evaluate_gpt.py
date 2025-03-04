@@ -3,7 +3,7 @@ from datasets import load_from_disk
 from torch.nn.functional import softmax
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
-from evaluation.libs.metric_calculator import MetricsCalculator
+from libs.metric_calculator import MetricsCalculator
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -41,21 +41,16 @@ def get_llm_judgment(model, tokenizer, prompt):
 
     response = tokenizer.decode(outputs.sequences[0], skip_special_tokens=True).strip().lower()
 
-    # Extract logits from output_scores (logits are stored in the output_scores object)
-    logits = outputs.scores[-1]  # Logits for the last token
-    probs = softmax(logits, dim=-1)  # Apply softmax to logits to get probabilities
-
-    # We assume that the two labels are 'formal' and 'informal'. The probability for 'formal' is the second element.
+    logits = outputs.scores[-1]
+    probs = softmax(logits, dim=-1)
     predicted_label = 1 if "formal" in response else (0 if "informal" in response else -1)
-
-    # Assign probability based on label prediction
-    probability = probs.max().item() if predicted_label != -1 else 0.5  # Default 0.5 if uncertain
+    probability = probs.max().item() if predicted_label != -1 else 0.5
 
     return predicted_label, probability
 
 def evaluate_with_llm():
     model, tokenizer = load_model_and_tokenizer()
-    dataset = load_from_disk("../dataset/dataset_gpt")
+    dataset = load_from_disk("dataset/dataset_gpt")
 
     logging.info(f"Loaded dataset with {len(dataset)} examples.")
 

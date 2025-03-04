@@ -61,8 +61,8 @@ def split_and_save_data(dataset, output_path):
     return final_dataset
 
 if __name__ == "__main__":
-    input_file = "../dataset/formal_informal_dataset_small.csv"
-    output_path = "../dataset/tokenized_dataset_for_training"
+    input_file = "dataset/formal_informal_dataset_small.csv"
+    output_path = "dataset/tokenized_dataset_for_training"
     
     dataset_frame = load_dataset(input_file)
     dataset_format = convert_frame_to_dataset_format(dataset_frame)

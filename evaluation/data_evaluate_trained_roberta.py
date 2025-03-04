@@ -4,16 +4,15 @@ from datasets import load_from_disk
 from torch.utils.data import DataLoader
 from transformers import RobertaForSequenceClassification, RobertaTokenizerFast
 
-from evaluation.libs.metric_calculator import MetricsCalculator
+from libs.metric_calculator import MetricsCalculator
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def evaluate():
-    model_path = "../models/roberta_formal_informal"
-    dataset_path = "../dataset/tokenized_dataset_for_training/test"
+    model_path = "models/roberta_formal_informal"
+    dataset_path = "dataset/tokenized_dataset_for_training/test"
     
     model = RobertaForSequenceClassification.from_pretrained(model_path)
-    tokenizer = RobertaTokenizerFast.from_pretrained(model_path)
     test_dataset = load_from_disk(dataset_path)
     
     test_dataloader = DataLoader(test_dataset, batch_size=16)

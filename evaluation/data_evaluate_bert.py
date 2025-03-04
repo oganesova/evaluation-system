@@ -5,7 +5,7 @@ from datasets import load_from_disk
 from torch.utils.data import DataLoader
 from transformers import BertForSequenceClassification, BertTokenizerFast
 
-from evaluation.libs.metric_calculator import MetricsCalculator
+from libs.metric_calculator import MetricsCalculator
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -36,10 +36,10 @@ def evaluate_model(model, dataloader):
             outputs = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"])
             logits = outputs.logits
             preds = torch.argmax(logits, dim=-1)
-            all_preds.extend(preds.cpu().numpy())
-            all_labels.extend(batch["labels"].cpu().numpy())
+            all_preds.extend(preds.numpy())
+            all_labels.extend(batch["labels"].numpy())
             probs = torch.nn.functional.softmax(logits, dim=-1)[:, 1]
-            all_probs.extend(probs.cpu().numpy())
+            all_probs.extend(probs.numpy())
 
     return all_labels, all_preds, all_probs
 
@@ -56,7 +56,7 @@ def print_metrics(labels, predictions, probabilities):
     print(f"AUC ROC: {metrics['auc_roc']:.4f}")
 
 if __name__ == "__main__":
-    file_path_dataset = "../dataset/tokenized_dataset_bert"
+    file_path_dataset = "dataset/tokenized_dataset_bert"
     data_loader = load_tokenized_dataset(file_path_dataset,16)
     model_ = init_model(model_name)
     true_labels, preds, probs = evaluate_model(model_,data_loader)

@@ -48,8 +48,8 @@ def save_dataset(dataset, output_path):
         logging.error(f"Error saving dataset: {e}")
 
 if __name__ == "__main__":
-    input_file = "../dataset/formal_informal_dataset_small.csv"
-    output_path = "../dataset/dataset_gpt"
+    input_file = "dataset/formal_informal_dataset_small.csv"
+    output_path = "dataset/dataset_gpt"
     df = load_dataset(input_file)
     df = prepare_prompts(df)
     dataset = convert_to_dataset(df)
