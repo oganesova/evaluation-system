@@ -50,9 +50,9 @@ I downloaded it from here -- > https://www.kaggle.com/datasets/shiromtcha/formal
 
 After I cleaned the dataset, remove duplicates, none values (for all models), also 
 I split dataset for training into three sets:
-- Training set
-- Test set
-- Validation set
+- Training Set: **70**% of the total data
+- Validation Set: **10**% of the total data
+- Test Set: **20**% of the total data
 
 ### Model Selection
 ___
