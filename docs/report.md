@@ -100,7 +100,7 @@ ___
 
 In this report, I evaluate the performance of three different models for text classification based on their accuracy, precision, recall, F1 score, confusion matrix, and AUC ROC score. The models compared are:
 
-1. BERT (not trained)
+1. **BERT (not trained)**
 
 The performance of BERT (not fine-tuned) for the text classification task `
 
@@ -117,7 +117,7 @@ AUC ROC: 0.2639
 suggesting that it is not effectively distinguishing between the classes.
 The AUC ROC score is also quite low, showing that the model's performance is suboptimal without fine-tuning.
 
-2. RoBERTa (trained)
+2. **RoBERTa (trained)**
 
 The RoBERTa (trained) model shows outstanding performance in all metrics:
 
@@ -135,7 +135,7 @@ The accuracy and F1 score of 1.0000 reflect that the model has perfectly learned
 The confusion matrix shows no false positives or false negatives, which contributes to the AUC ROC of 1.0000,
 indicating the highest possible performance.
 
-Roberta Not Trained Evaluation Result: 
+**RoBERTa Not Trained Evaluation Result**: 
 
 ![image](https://github.com/user-attachments/assets/0abc1600-082f-448f-b4ef-b11c98b3179b)
 
@@ -144,7 +144,7 @@ As expected, it didn't perform as well as the fine-tuned version.
 The accuracy and precision are considerably lower, but the model still gives a good recall and AUC ROC,
 which indicates its effectiveness in capturing positive instances.
 
-3. GPT-2 (not trained)
+3. **GPT-2 (not trained)**
 
 The GPT-2 (not fine-tuned) model also performs reasonably well in some metrics:
 
@@ -173,7 +173,7 @@ This has been an interesting and educational project. In three days, I learned m
 discovered helpful video lectures, and learned so much more about machine learning. I will continue learning and expanding my knowledge in this field.
 This has been a rich experience.
 
-Thank you for reading! It was an exciting ride into the world of text processing and machine learning. 
+**Thank you for reading! It was an exciting ride into the world of text processing and machine learning.** 
 
 ## P.S
 ___
